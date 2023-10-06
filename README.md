@@ -24,3 +24,8 @@ pip3 install -U pip
 ```
 pip3 install rasa
 ```
+
+para abrir a pasta do ubuntu no windows
+```
+C:\Users\%USERNAME%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\rootfs\root
+```
