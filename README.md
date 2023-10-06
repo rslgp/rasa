@@ -29,3 +29,14 @@ para abrir a pasta do ubuntu no windows
 ```
 C:\Users\%USERNAME%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\rootfs\root
 ```
+
+***
+nodejs
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+```
+reinicia o terminal
+```
+nvm install node
+```
+
