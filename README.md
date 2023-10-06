@@ -25,6 +25,10 @@ pip3 install -U pip
 pip3 install rasa
 ```
 
+```
+rasa run -m models --enable-api --cors "*" --debug
+```
+
 para abrir a pasta do ubuntu no windows
 ```
 C:\Users\%USERNAME%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\rootfs\root
