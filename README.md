@@ -29,6 +29,9 @@ pip3 install rasa
 rasa run -m models --enable-api --cors "*" --debug
 ```
 
+https://www.youtube.com/watch?v=eJMT2FovZsM
+***
+
 para abrir a pasta do ubuntu no windows
 ```
 C:\Users\%USERNAME%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\rootfs\root
