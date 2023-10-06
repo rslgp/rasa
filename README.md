@@ -6,7 +6,7 @@ reinicia
 instala o ubuntu na microsoft store
 
 ```
-wget https://raw.githubusercontent.com/rslgp/rasa/main/sources.list > /etc/apt/sources.list
+curl https://raw.githubusercontent.com/rslgp/rasa/main/sources.list > /etc/apt/sources.list
 ```
 
 ```
