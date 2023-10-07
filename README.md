@@ -27,6 +27,14 @@ pip3 install rasa
 
 ```
 rasa init
+```
+```
+socketio:
+  user_message_evt: user_uttered
+  bot_message_evt: bot_uttered
+  session_persistence: true
+```
+```
 rasa run -m models --enable-api --cors "*" --debug
 ```
 
@@ -36,6 +44,8 @@ https://www.youtube.com/watch?v=eJMT2FovZsM
 para abrir a pasta do ubuntu no windows
 ```
 C:\Users\%USERNAME%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\rootfs\root
+
+ \\wsl$\
 ```
 
 ***
