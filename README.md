@@ -26,6 +26,7 @@ pip3 install rasa
 ```
 
 ```
+rasa init
 rasa run -m models --enable-api --cors "*" --debug
 ```
 
