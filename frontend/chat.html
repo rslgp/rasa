@@ -123,6 +123,15 @@
             // Clear the input field
             document.getElementById('messageInput').value = '';
         }
+
+        // Add event listener to the textarea to send message on Enter key press
+        const messageInput = document.getElementById('messageInput');
+        messageInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault(); // Prevents the newline character from being added
+                sendMessage(); // Call the sendMessage function
+            }
+        });
     </script>
     
 </body>
