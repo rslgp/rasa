@@ -48,6 +48,17 @@ C:\Users\%USERNAME%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1f
  \\wsl$\
 ```
 
+```
+//client.rest
+POST http://localhost:5005/webhooks/rest/webhook HTTP/1.1
+Content-Type: application/json
+
+{
+  "sender": "test_user",
+  "message": "Hi"
+}
+```
+
 ***
 nodejs
 ```
