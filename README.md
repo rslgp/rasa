@@ -15,6 +15,7 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install python3.9
 ```
+3.9 pois https://rasa.com/docs/rasa/installation/environment-set-up/
 
 ```
 sudo apt install python3-pip
