@@ -1,79 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Chat Application</title>
-        <style>
-            .chat-parent {
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-                border: 1px solid #ccc; /* Add a border around the entire chat widget */
-            }
 
-            .chat-container {
-                flex-grow: 1;
-                width: 300px;
-                margin: 0 auto;
-                border-bottom: 1px solid #ccc; /* Add a border at the bottom of the chat container */
-                padding: 10px;
-                border-radius: 5px;
-                overflow-y: auto;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <style>
+        body {
+            background-color: transparent;
+            font-family: sans-serif;
 
-            .message {
-                background-color: #f1f1f1;
-                padding: 10px;
-                margin: 5px 0;
-                border-radius: 5px;
-            }
+        }
 
-            .user-message {
-                background-color: #007bff;
-                color: white;
-                text-align: right;
-            }
+        button {
+            position: absolute;
+            right: 0;
 
-            .input-container {
-                display: flex;
-                align-items: center;
-                justify-content: space-between; /* Center align and space between elements */
-                padding: 10px;
-                background-color: #fff;
-                border-top: 1px solid #ccc; /* Add a border at the top of the input container */
-            }
-            #messageInput {
-                flex-grow: 1;
-                padding: 5px;
-                border: none;
-                outline: none;
-                border-radius: 5px;
-            }
-            #chat-button {
-                margin-left: 10px;
-                border: none;
-                background-color: #007bff;
-                color: white;
-                padding: 5px 10px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-        </style>
-        
-    </head>
+        }
+
+        .chat-parent {
+            position: fixed;
+            right: 1.6rem;
+            background-color: #fff;
+
+
+
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid #ccc;
+            border-radius: 1r;
+            /* Add a border around the entire chat widget */
+
+
+        }
+
+        .chat-container {
+            flex-grow: 1;
+            width: 300px;
+            margin: 0 auto;
+            border-bottom: 1px solid #ccc;
+            /* Add a border at the bottom of the chat container */
+            padding: 10px;
+            border-radius: 5px;
+            overflow-y: auto;
+        }
+
+        .message {
+            background-color: #03ff57;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            text-align: right;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Center align and space between elements */
+            padding: 10px;
+            background-color: #03ff57;
+            border-top: 1px solid #ccc;
+            /* Add a border at the top of the input container */
+        }
+
+        #messageInput {
+            flex-grow: 1;
+            padding: 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        #chat-button {
+            margin-left: 0px;
+            margin-right: 20px;
+            border: none;
+            background-color: #68a72e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .open {
+            visibility: visible;
+            opacity: 1;
+
+        }
+    </style>
+
+</head>
+
 <body>
+
+
+
     <div class="chat-parent">
         <div class="chat-container">
             <div class="message">Welcome to the Chat!</div>
         </div>
-        
+
         <div class="input-container">
             <textarea id="messageInput" placeholder="Type your message..."></textarea>
             <button id="chat-button" onclick="sendMessage()">Send</button>
         </div>
     </div>
-    
+
     <script>
         function appendMessage(message, isUser = false) {
             const chatContainer = document.querySelector('.chat-container');
@@ -82,18 +121,18 @@
             messageElement.innerText = message;
             chatContainer.appendChild(messageElement);
         }
-    
+
         function appendImage(imageUrl) {
             const chatContainer = document.querySelector('.chat-container');
             const imageElement = document.createElement('img');
             imageElement.src = imageUrl;
             chatContainer.appendChild(imageElement);
         }
-    
+
         function sendMessage() {
             const messageInput = document.getElementById('messageInput').value;
             appendMessage(`You: ${messageInput}`, true);
-    
+
             // Make a POST request to the server
             fetch('http://localhost:5005/webhooks/rest/webhook', {
                 method: 'POST',
@@ -105,21 +144,21 @@
                     "message": messageInput
                 })
             })
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(response => {
-                    if (response.text) {
-                        appendMessage(`Bot: ${response.text}`);
-                    }
-                    if (response.image) {
-                        appendImage(response.image);
-                    }
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(response => {
+                        if (response.text) {
+                            appendMessage(`Bot: ${response.text}`);
+                        }
+                        if (response.image) {
+                            appendImage(response.image);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                 });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    
+
             // Clear the input field
             document.getElementById('messageInput').value = '';
         }
@@ -133,6 +172,7 @@
             }
         });
     </script>
-    
+
 </body>
+
 </html>
