@@ -1,0 +1,5 @@
+intents:
+  - random_user
+
+actions:
+  - RandomUserAction
