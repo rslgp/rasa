@@ -1,0 +1,5 @@
+- intent: random_user
+  examples: |
+    - give me a random user
+    - generate a random user
+    - show me a random user
