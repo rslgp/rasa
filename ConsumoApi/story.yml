@@ -1,0 +1,4 @@
+- story: random user
+  steps:
+  - intent: random_user
+  - action: RandomUserAction
